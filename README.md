@@ -5,7 +5,8 @@
 [![Coverage Status](https://codecov.io/github/mbeacom/circleci-webhook-manager/coverage.svg?branch=main)](https://codecov.io/github/mbeacom/circleci-webhook-manager?branch=main)
 [![PyPi](https://img.shields.io/pypi/v/circleci-webhook-manager)](https://pypi.org/project/circleci-webhook-manager/)
 
-This project aims to provide a simple way to manage CircleCI webhooks.  Particularly, it aims to provide a way to manage webhooks for multiple projects (e.g., organization-wide) at once.
+This project aims to provide a simple way to manage CircleCI webhooks.
+It aims to provide a way to manage webhooks for multiple projects (e.g., organization-wide).
 
 ## Usage
 
