@@ -8,6 +8,11 @@
 This project aims to provide a simple way to manage CircleCI webhooks.
 It aims to provide a way to manage webhooks for multiple projects (e.g., organization-wide).
 
+This project is not affiliated with CircleCI and is not an official CircleCI project.
+But it is an open-source project that is free to use and modify.
+
+Work in process, YMMV...
+
 ## Usage
 
 This project uses:
