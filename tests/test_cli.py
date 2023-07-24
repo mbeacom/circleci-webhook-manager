@@ -12,7 +12,7 @@ def test_entry_version_arg() -> None:
     """Test the entry method with the version argument."""
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "python-template version" in result.stdout
+    assert "circleci-webhook-manager version" in result.stdout
 
 
 def test_entry_help() -> None:
