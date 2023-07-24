@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "python-template-x"
-version = "0.1.0"
-description = "This is a python template."
+name = "circleci-webhook-manager"
+version = "0.0.1"
+description = "This project aims to provide a simple way to manage bulk (selective or organization-wide) CircleCI webhooks."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
-packages = [{include = "python_template"}]
+packages = [{include = "webhook_manager"}]
 license = "MIT"
-keywords = ["app", "cli", "python", "template"]
+keywords = ["cli", "circleci", "webhook", "manager", "webhook", "organization"]
 classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -14,7 +14,6 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    # "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
 ]
 include = [
@@ -23,7 +22,8 @@ include = [
 ]
 
 [tool.poetry.scripts]
-python-template = "python_template.cli:app"
+circleci-webhook-manager = "webhook_manager.cli:app"
+ccwm = "webhook_manager.cli:app"
 
 [tool.bandit]
 exclude_dirs = ["tests"]
@@ -142,15 +142,15 @@ check-black = {cmd = "black . --check --diff", help = "Validate styling with bla
 check-isort = {cmd = "isort --check --profile=black .", help = "Validate import ordering with isort"}
 update-precommit-hooks = {cmd = "pre-commit autoupdate --freeze", help = "Update pre-commit hooks and freeze to SHAs"}
 check-precommit-hooks = {cmd = "pre-commit run --all-files", help = "Run pre-commit hooks on all files"}
-check-ruff = "ruff check python_template"
-check-mypy = "mypy python_template"
+check-ruff = "ruff check webhook_manager"
+check-mypy = "mypy webhook_manager"
 check = ["check-ruff", "check-isort", "check-black", "check-mypy"]
 lint = ["ruff"]
 fix = ["ruff", "isort", "black"]
-test = "pytest --cov=python_template --cov-report=xml --cov-report=term"
-ruff = "ruff check --fix python_template"
+test = "pytest --cov=webhook_manager --cov-report=xml --cov-report=term"
+ruff = "ruff check --fix webhook_manager"
 safety = "safety check"
-bandit = "bandit -r python_template"
+bandit = "bandit -r webhook_manager"
 security = ["safety", "bandit"]
 # requires poethepoet outside of poetry.
 install = "poetry install"
@@ -167,11 +167,11 @@ coverage = "^7.2.7"
 
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.12.0"}
-black = "^23.3.0"
+black = "^23.7.0"
 mypy = "^1.4.1"
 debugpy = "^1.6.7"
-ruff = "^0.0.277"
-poethepoet = "^0.20.0"
+ruff = "^0.0.280"
+poethepoet = "^0.21.1"
 
 [tool.poetry.group.security.dependencies]
 safety = "^2.3.5"
@@ -179,7 +179,7 @@ bandit = {extras = ["toml"], version = "^1.7.5"}
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.3"
-mkdocs-material = "^9.1.18"
+mkdocs-material = "^9.1.19"
 mkdocstrings = {extras = ["python"], version = "^0.22.0"}
 
 [build-system]

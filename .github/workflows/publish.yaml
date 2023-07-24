@@ -6,8 +6,7 @@ on:
       - '*'
 
 env:
-  # TODO: Update the package name to match the name of your package.
-  PACKAGE_NAME: python_template_x
+  PACKAGE_NAME: circleci-webhook-manager
 
 jobs:
   publish:
@@ -39,7 +38,6 @@ jobs:
           echo "Python Module Version: $MODULE_VERSION"
           if [[ "$TAG_VERSION" != "$MODULE_VERSION" ]]; then exit 1; fi
 
-      # TODO: Update the PyPi token to push to PyPi.
       - name: Publish to PyPi
         run: poetry publish --build
         env:

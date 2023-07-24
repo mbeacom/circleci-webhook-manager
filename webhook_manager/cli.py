@@ -5,7 +5,7 @@ from typing import Optional
 
 import typer
 
-from python_template import __version__
+from webhook_manager import __version__
 
 app = typer.Typer(help="This is a python template.")
 
@@ -13,7 +13,7 @@ app = typer.Typer(help="This is a python template.")
 def version_callback(value: bool) -> None:  # noqa: FBT001
     """Handle the version callback."""
     if value:
-        typer.secho(f"python-template version: {__version__}", fg=typer.colors.BRIGHT_GREEN, bold=True)
+        typer.secho(f"circleci-webhook-manager version: {__version__}", fg=typer.colors.BRIGHT_GREEN, bold=True)
         raise typer.Exit
 
 
@@ -33,4 +33,4 @@ def main(
 
 
 if __name__ == "__main__":  # pragma: no cover
-    app(prog_name="python-template")
+    app(prog_name="circleci-webhook-manager")
