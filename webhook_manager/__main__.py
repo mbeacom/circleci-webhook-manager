@@ -3,4 +3,4 @@ from __future__ import annotations
 
 from .cli import app
 
-app(prog_name="python-template")
+app(prog_name="circleci-webhook-manager")

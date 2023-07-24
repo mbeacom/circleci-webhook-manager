@@ -1,11 +1,11 @@
-# python-template
+# circleci-webhook-manager
 
-[![Validation Workflow](https://github.com/mbeacom/python-template/actions/workflows/validate.yaml/badge.svg?branch=main&event=push)](https://github.com/mbeacom/python-template/actions/workflows/validate.yaml)
-[![Pre-Commit Checks Workflow](https://github.com/mbeacom/python-template/actions/workflows/pre-commit.yaml/badge.svg?branch=main&event=push)](https://github.com/mbeacom/python-template/actions/workflows/pre-commit.yaml)
-[![Coverage Status](https://codecov.io/github/mbeacom/python-template/coverage.svg?branch=main)](https://codecov.io/github/mbeacom/python-template?branch=main)
-[![PyPi](https://img.shields.io/pypi/v/python-template-x)](https://pypi.org/project/python-template-x/)
+[![Validation Workflow](https://github.com/mbeacom/circleci-webhook-manager/actions/workflows/validate.yaml/badge.svg?branch=main&event=push)](https://github.com/mbeacom/circleci-webhook-manager/actions/workflows/validate.yaml)
+[![Pre-Commit Checks Workflow](https://github.com/mbeacom/circleci-webhook-manager/actions/workflows/pre-commit.yaml/badge.svg?branch=main&event=push)](https://github.com/mbeacom/circleci-webhook-manager/actions/workflows/pre-commit.yaml)
+[![Coverage Status](https://codecov.io/github/mbeacom/circleci-webhook-manager/coverage.svg?branch=main)](https://codecov.io/github/mbeacom/circleci-webhook-manager?branch=main)
+[![PyPi](https://img.shields.io/pypi/v/circleci-webhook-manager)](https://pypi.org/project/circleci-webhook-manager/)
 
-This project is an opinionated python template.
+This project aims to provide a simple way to manage CircleCI webhooks.  Particularly, it aims to provide a way to manage webhooks for multiple projects (e.g., organization-wide) at once.
 
 ## Usage
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typer.testing import CliRunner
 
-from python_template.cli import app
+from webhook_manager.cli import app
 
 runner = CliRunner()
 
