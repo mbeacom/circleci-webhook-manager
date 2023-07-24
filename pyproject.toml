@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "circleci-webhook-manager"
-version = "0.1.0"
+version = "0.0.1"
 description = "This project aims to provide a simple way to manage bulk (selective or organization-wide) CircleCI webhooks."
 authors = ["Mark Beacom <m@beacom.dev>"]
 readme = "README.md"
