@@ -15,12 +15,12 @@ class CircleCIWebhookManager:
     def __init__(
         self: CircleCIWebhookManager,
         token: str = "",  # nosec: B107
-        **kwargs: dict[str, Any],
+        **kwargs: dict[str, str],
     ) -> None:
         """Initialize the CircleCI webhook manager."""
-        self.base_url: str = kwargs.get("base_url") or os.environ.get(
+        self.base_url: str = kwargs.get("base_url", "") or os.environ.get(  # type: ignore
             "CIRCLECI_BASE_URL",
-            "https://circleci.com/api/v2",
+            "",
         )
         self._token: str = token or os.environ.get("CIRCLECI_TOKEN", "")
         self._headers: dict[str, str] = {
@@ -28,7 +28,8 @@ class CircleCIWebhookManager:
             "User-Agent": "circleci-webhook-manager",
             "Circle-Token": self._token,
         }
-        self.headers: dict[str, str] = {**self._headers, **kwargs.get("headers", {})}
+        provided_headers: dict[str, str] = kwargs.get("headers", {})
+        self.headers: dict[str, str] = {**self._headers, **provided_headers}
         self.session: httpx.Client = httpx.Client(headers=self.headers)
         self._user: CircleCIUser = self.get_user()
         self._collaborations: list[CircleCIOrganization] = self.get_collaborations()
@@ -74,7 +75,7 @@ class CircleCIWebhookManager:
         self.collaborations_response: httpx.Response = self.session.get(
             f"{self.base_url}/me/collaborations",
         )
-        data: dict[str, Any] = self.collaborations_response.json()
+        data: list[dict[str, str]] = self.collaborations_response.json()
         return [CircleCIOrganization(**organization) for organization in data]
 
     def get_user(self: CircleCIWebhookManager) -> CircleCIUser:
