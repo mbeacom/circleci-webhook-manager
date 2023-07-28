@@ -20,7 +20,7 @@ class CircleCIWebhookManager:
         """Initialize the CircleCI webhook manager."""
         self.base_url: str = kwargs.get("base_url", "") or os.environ.get(  # type: ignore
             "CIRCLECI_BASE_URL",
-            "",
+            "https://circleci.com/api/v2",
         )
         self._token: str = token or os.environ.get("CIRCLECI_TOKEN", "")
         self._headers: dict[str, str] = {
