@@ -165,6 +165,7 @@ httpx = "^0.24.1"
 pytest = "^7.4.0"
 pytest-cov = "^4.1.0"
 coverage = "^7.2.7"
+respx = "^0.20.2"
 
 [tool.poetry.group.dev.dependencies]
 isort = {extras = ["toml"], version = "^5.12.0"}

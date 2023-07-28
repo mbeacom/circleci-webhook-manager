@@ -1,11 +1,8 @@
 """Define the models for the webhook manager package."""
 from __future__ import annotations
 
-import logging
 from dataclasses import dataclass
 from typing import Any
-
-logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -14,14 +11,9 @@ class BaseModel:
 
     id: str  # noqa: A003
 
-    def __init__(self: BaseModel, **kwargs: dict[str, Any]) -> None:
-        """Initialize the base model."""
-        _id: str = kwargs.pop("id", "")
-        setattr(self, f"{self.__class__.__name__.lower().ltrim('circleci')}_id", _id)
-
-    def __repr__(self: BaseModel) -> str:
+    def __str__(self: BaseModel) -> str:
         """Return the string representation of the base model."""
-        return f"{self.__class__.__name__} - {self.__dict__}"
+        return f"{self.__class__.__name__}"
 
     def to_dict(self: BaseModel) -> dict[str, Any]:
         """Return the dictionary representation of this object."""

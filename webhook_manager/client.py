@@ -71,15 +71,15 @@ class CircleCIWebhookManager:
 
     def get_collaborations(self: CircleCIWebhookManager) -> list[CircleCIOrganization]:
         """Get the collaborations for the current identity."""
-        response: httpx.Response = self.session.get(
+        self.collaborations_response: httpx.Response = self.session.get(
             f"{self.base_url}/me/collaborations",
         )
-        data: dict[str, Any] = response.json()
+        data: dict[str, Any] = self.collaborations_response.json()
         return [CircleCIOrganization(**organization) for organization in data]
 
     def get_user(self: CircleCIWebhookManager) -> CircleCIUser:
         """Get the user for the given token."""
-        response: httpx.Response = self.session.get(
+        self.user_response: httpx.Response = self.session.get(
             f"{self.base_url}/me",
         )
-        return CircleCIUser(**response.json())
+        return CircleCIUser(**self.user_response.json())
